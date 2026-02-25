@@ -155,7 +155,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/api/auth/google/callback",
+    callbackURL: "https://rahve.onrender.com/api/auth/google/callback",
   },
   async (accessToken, refreshToken, profile, done) => {
     await handleOAuthLogin("google", profile.id, profile, done)
@@ -169,7 +169,7 @@ passport.use(new GitHubStrategy(
   {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "/api/auth/github/callback",
+    callbackURL: "https://rahve.onrender.com/api/auth/github/callback",
     scope: ["user:email"]
   },
   async (accessToken, refreshToken, profile, done) => {
@@ -184,7 +184,7 @@ passport.use(new TwitterStrategy(
   {
     clientID: process.env.TWITTER_CLIENT_ID,
     clientSecret: process.env.TWITTER_CLIENT_SECRET,
-    callbackURL: "/api/auth/twitter/callback",
+    callbackURL: "https://rahve.onrender.com/api/auth/twitter/callback",
     scope: ["users.read", "email"],
     state: true
   },
