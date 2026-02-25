@@ -67,12 +67,12 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
 
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
+    // username: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   trim: true,
+    // },
 
     passwordHash: {
       type: String,

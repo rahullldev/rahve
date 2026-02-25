@@ -124,11 +124,11 @@ async function handleOAuthLogin(providerName, providerId, profile, done) {
     // 3️⃣ Create new user
     user = await User.create({
       email: email || null,
-      username:
-        profile.displayName ||
-        profile.username ||
-        profile._json?.name ||
-        `user_${providerId}`,
+      // username:
+      //   profile.displayName ||
+      //   profile.username ||
+      //   profile._json?.name ||
+      //   `user_${providerId}`,
       providers: {
         [providerName]: { id: providerId }
       },
