@@ -52,7 +52,7 @@ router.get("/github/callback",
 router.get(
   "/twitter",
   passport.authenticate("twitter", {
-    scope: ["tweet.read", "users.read", "email"],
+    scope: ["users.read", "email"],
     session: false
   })
 )
@@ -60,7 +60,7 @@ router.get(
 router.get(
   "/twitter/callback",
   passport.authenticate("twitter", {
-    failureRedirect: "/login",//see this cz it might be relative to base url
+    //failureRedirect: "/login",//see this cz it might be relative to base url
     session: false
   }),
   oauthCallback
