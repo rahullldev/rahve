@@ -1,0 +1,7 @@
+currently used button to get chat id on clicking new chat but path wont be visible so will switch to reacr router later
+u could have used map function directly in chat area so whenever data is changed map will re run to renfer updated elements 
+
+make a client.js in which fetch and fetch.js in which different fetch functio will be defined to use in files
+
+adding scroll button logic on applayout div and using autoscroll logic on chatpage div worked but using both on applayout div was
+making auto scroll logic not execute (see it)

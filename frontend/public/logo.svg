@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rahveGradient" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circle -->
+  <circle cx="60" cy="60" r="50" fill="url(#rahveGradient)" />
+
+  <!-- Inner Cut (Intelligence Core) -->
+  <circle cx="75" cy="45" r="18" fill="white" opacity="0.15"/>
+
+  <!-- Minimal R Shape -->
+  <path d="M48 42H65C72 42 76 46 76 52C76 58 72 62 65 62H48V42Z" fill="white"/>
+  <path d="M65 62L78 80H64L54 66H65Z" fill="white"/>
+</svg>
