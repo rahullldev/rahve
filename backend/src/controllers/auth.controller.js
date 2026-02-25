@@ -8,7 +8,7 @@ export const login = async (req, res) => {
   const { identifier, password } = req.body
 
   const user = await User.findOne({
-    $or: [{ email: identifier }, { username: identifier }],
+   email: identifier 
   })
   if (!user) {
     return res.status(404).json({ error: "ACCOUNT_NOT_FOUND" })
@@ -49,7 +49,7 @@ export const login = async (req, res) => {
     .json({
       user: {
         id: user._id,
-        username: user.username,
+        // username: user.username,
         email: user.email,
       },
     })
@@ -59,7 +59,7 @@ export const getMe = (req, res) => {
   res.json({
     user: {
       id: req.user._id,
-      username: req.user.username,
+      // username: req.user.username,
       email: req.user.email,
     }
   })
