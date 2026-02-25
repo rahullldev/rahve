@@ -1,9 +1,12 @@
 import { useNavigate, Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { Github } from "lucide-react"
+import { useEffect,useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function Signup() {
     const navigate = useNavigate()
+    const [showNotice, setShowNotice] = useState(false)
 
     const {
         register,
@@ -15,23 +18,26 @@ export default function Signup() {
             password: "",
         },
     })
-
-    const onSubmit = async (data) => {
-        const res = await fetch("/api/auth/signup", {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-
-        if (!res.ok) {
-            throw new Error("Signup failed")
-        }
-
-        navigate("/ai")
+    const onSubmit = async () => {
+        setShowNotice(true)
     }
+
+    // const onSubmit = async (data) => {
+    //     const res = await fetch("/api/auth/signup", {
+    //         method: "POST",
+    //         credentials: "include",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(data),
+    //     })
+
+    //     if (!res.ok) {
+    //         throw new Error("Signup failed")
+    //     }
+
+    //     navigate("/ai")
+    // }
 
     const handleGoogleSignup = () => {
         window.location.href = "/api/auth/google"
@@ -44,6 +50,12 @@ export default function Signup() {
     const handleTwitterSignup = () => {
         window.location.href = "/api/auth/twitter"
     }
+    useEffect(() => {
+        if (showNotice) {
+            const timer = setTimeout(() => setShowNotice(false), 4000)
+            return () => clearTimeout(timer)
+        }
+    }, [showNotice])
 
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-background px-4">
@@ -94,6 +106,35 @@ export default function Signup() {
                     </p>
 
                 </div>
+                <AnimatePresence>
+                    {showNotice && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            className="
+        flex items-start gap-3
+        rounded-xl
+        border
+        bg-primary/5
+        border-primary/20
+        px-4 py-3
+        text-sm
+        text-foreground
+      "
+                        >
+                            <div className="text-lg">😴</div>
+                            <div className="space-y-1">
+                                <p className="font-medium">
+                                    Please use Google or GitHub signup.
+                                </p>
+                                <p className="text-muted-foreground text-xs">
+                                    The developer is slightly overworked and promised to integrate OTP verification soon.
+                                </p>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
