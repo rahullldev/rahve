@@ -182,7 +182,7 @@ export default function Signup() {
                         Continue with GitHub
                     </button>
 
-                    <button
+                    {/* <button
                         onClick={handleTwitterSignup}
                         className="flex items-center justify-center gap-2 w-full rounded-md border px-4 py-2 text-sm font-medium hover:bg-primary/5 hover:ring-2 hover:ring-primary/30 transition"
                     >
@@ -191,7 +191,7 @@ export default function Signup() {
                             className="h-4 w-4"
                         />
                         Continue with X (Twitter)
-                    </button>
+                    </button> */}
 
                 </div>
 

@@ -183,7 +183,7 @@ const AppLayout = () => {
 
 
     return (
-        <div className=" h-screen flex bg-background text-foreground">
+        <div className=" h-dvh flex bg-background text-foreground overflow-hidden">
             {/* <Topbar className="h-14 flex-none bg-[#2e2e2e]   border-slate-200" /> */}
             {/* <div className="flex flex-1 " > */}
 
@@ -202,7 +202,7 @@ const AppLayout = () => {
                     <Outlet />
 
                 </div>
-                <div className="  formcontainer w-full flex justify-center  py-5">
+                <div className="  formcontainer w-full flex justify-center  py-5 md:px-6 ">
 
                     <form className=" relative w-full  max-w-3xl flex  rounded-2xl border px-4 py-3 bg-background" onSubmit={handleSubmit(onSubmit)} >
                         <textarea
