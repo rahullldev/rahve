@@ -185,6 +185,7 @@ passport.use(new TwitterStrategy(
     clientID: process.env.TWITTER_CLIENT_ID,
     clientSecret: process.env.TWITTER_CLIENT_SECRET,
     callbackURL: "https://rahve.onrender.com/api/auth/twitter/callback",
+    scope: ["users.read", "tweet.read", "offline.access"],
     state: false
   },
   async (accessToken, refreshToken, profile, done) => {

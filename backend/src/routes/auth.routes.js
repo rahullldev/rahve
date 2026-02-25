@@ -52,7 +52,7 @@ router.get("/github/callback",
 router.get(
   "/twitter",
   passport.authenticate("twitter", {
-    scope: ["users.read", "email"],
+    scope: ["users.read", "tweet.read", "offline.access"],
     session: false
   })
 )
