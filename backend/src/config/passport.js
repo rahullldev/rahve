@@ -4,7 +4,7 @@
 import passport from "passport"
 import GoogleStrategy from "passport-google-oauth20"
 import GitHubStrategy from "passport-github2"
-import TwitterStrategy from "passport-twitter"
+import { Strategy as TwitterStrategy } from "passport-twitter-oauth2"
 import { User } from "../dbschema.js"
 
 // Helper to extract verified email safely
@@ -182,12 +182,13 @@ passport.use(new GitHubStrategy(
 //
 passport.use(new TwitterStrategy(
   {
-    consumerKey: process.env.TWITTER_CLIENT_ID,
-    consumerSecret: process.env.TWITTER_CLIENT_SECRET,
+    clientID: process.env.TWITTER_CLIENT_ID,
+    clientSecret: process.env.TWITTER_CLIENT_SECRET,
     callbackURL: "/api/auth/twitter/callback",
-    includeEmail: true
+    scope: ["users.read", "email"],
+    state: true
   },
-  async (token, tokenSecret, profile, done) => {
+  async (accessToken, refreshToken, profile, done) => {
     await handleOAuthLogin("twitter", profile.id, profile, done)
   }
 ))

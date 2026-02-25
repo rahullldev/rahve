@@ -40,12 +40,29 @@ router.get("/github/callback",
 )
 
 // TWITTER
-router.get("/twitter",
-  passport.authenticate("twitter", { session: false })
+// router.get("/twitter",
+//   passport.authenticate("twitter", { session: false })
+// )
+
+// router.get("/twitter/callback",
+//   passport.authenticate("twitter", { session: false }),
+//   oauthCallback
+// )
+
+router.get(
+  "/twitter",
+  passport.authenticate("twitter", {
+    scope: ["tweet.read", "users.read", "email"],
+    session: false
+  })
 )
 
-router.get("/twitter/callback",
-  passport.authenticate("twitter", { session: false }),
+router.get(
+  "/twitter/callback",
+  passport.authenticate("twitter", {
+    failureRedirect: "/login",//see this cz it might be relative to base url
+    session: false
+  }),
   oauthCallback
 )
 
