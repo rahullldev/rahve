@@ -155,7 +155,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/api/auth/google/callback",
+    callbackURL: "/api/auth/google/callback",
   },
   async (accessToken, refreshToken, profile, done) => {
     await handleOAuthLogin("google", profile.id, profile, done)
@@ -169,7 +169,7 @@ passport.use(new GitHubStrategy(
   {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/api/auth/github/callback",
+    callbackURL: "/api/auth/github/callback",
     scope: ["user:email"]
   },
   async (accessToken, refreshToken, profile, done) => {
@@ -184,7 +184,7 @@ passport.use(new TwitterStrategy(
   {
     consumerKey: process.env.TWITTER_CLIENT_ID,
     consumerSecret: process.env.TWITTER_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/api/auth/twitter/callback",
+    callbackURL: "/api/auth/twitter/callback",
     includeEmail: true
   },
   async (token, tokenSecret, profile, done) => {
