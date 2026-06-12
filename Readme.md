@@ -33,6 +33,7 @@ The application supports traditional authentication alongside social login provi
 * Vite
 * JavaScript
 * Tailwind CSS
+* Shadcn
 
 ### Backend
 
@@ -84,20 +85,20 @@ MongoDB     AI Services
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/rahve.git
+git clone https://github.com/rahulldev/rahve.git
 ```
 
 Install frontend dependencies:
 
 ```bash
-cd client
+cd frontend
 npm install
 ```
 
 Install backend dependencies:
 
 ```bash
-cd ../server
+cd ../backend
 npm install
 ```
 
@@ -110,6 +111,7 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 TWITTER_CLIENT_ID=
 TWITTER_CLIENT_SECRET=
+OPENAI_API
 ```
 
 Run the development servers:
@@ -130,11 +132,4 @@ This project provided hands-on experience with:
 * Production deployment and environment management
 * Building AI-enabled user experiences
 
-## Author
 
-Rahul Gupta
-
-Software Developer focused on Full-Stack Development, AI Applications, and Product Engineering.
-
-GitHub: https://github.com/your-username
-LinkedIn: https://linkedin.com/in/your-profile
