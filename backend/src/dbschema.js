@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-const MONGO_URI="mongodb+srv://sahchandani123:NZr22fRXzQTvehG4@cluster0.fczzbg9.mongodb.net/?appName=Cluster0"
+const MONGO_URI=process.env.MONGO_URI
 
 await mongoose.connect(MONGO_URI)
 
